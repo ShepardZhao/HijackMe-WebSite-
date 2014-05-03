@@ -13,6 +13,12 @@
 }
 
 
+/** modal vitical **/
+#Common_modal{
+    top: 50%;
+    left: 50%;
+}
+
 
 /** backgound setting up **/
 body{
@@ -21,6 +27,8 @@ body{
 }
 #background{
     background: url('../img/stars.png');
+    -webkit-transition: -webkit-transform .5s;
+    transition: transform .5s;
 }
 
 
@@ -79,12 +87,52 @@ body{
 }
 .videostream_sope{
     width: 100%;
-    height: 350px;
+    height: 250px;
 }
 
 .takephoto{
     color:rgb(245,112,102);
 }
 
+/** off-canvas-wrap **/
+.off-canvas-wrap,.inner-wrap{
+    height:100%;
+}
+.tab-bar{
+    background: #008CBA;
+}
+
+.left-small{
+    border-right: solid 1px #FFFFFF;
+}
+.off-canvas-wrap{
+    left: -1px;
+}
+
+.close-reveal-modal{
+    z-index: 1000;
+    right: -25px;
+    top: -35px;
+}
+
+.close-reveal-modal-upload{
+    top: 0 !important;
+    right: 0.6875rem !important;
+}
+
+.close-reveal-modal-photostore{
+    top: -2.2rem !important;
+    right: -1.5rem !important;
+}
 
 
+#scroller-section{
+    height:100%;
+    overflow:scroll;
+}
+
+.reveal-modal{
+
+    overflow-x:hidden;
+    overflow-y:scroll;
+}

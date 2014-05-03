@@ -75,9 +75,8 @@ else{
                 background.style.backgroundPosition = backgroundPositionVal;
             }, false);
 
-        } else {
-            document.getElementById("foreground").innerHTML = "Not supported on your device or browser."
-        };
+        }
+
     });
 
 }

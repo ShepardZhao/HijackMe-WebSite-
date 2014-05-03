@@ -2,39 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc6a576d-2059-4091-8324-a84e5352e720" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/camera_capture.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/faceDectection_camera.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/footer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/header.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.abide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.accordion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.alert.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.clearing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.equalizer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.interchange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.joyride.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.magellan.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.offcanvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.orbit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.reveal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.slider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.tab.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.tooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/foundation/foundation.topbar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/vendor/fastclick.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/vendor/jquery-1.11.0.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/vendor/jquery.cookie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/vendor/modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/vendor/parallax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/vendor/placeholder.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/FaceDectection.php" afterPath="$PROJECT_DIR$/faceDectection_photoupload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/class.controller.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/facePlus.model.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/img.model.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/img_uploading.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FaceDectection.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/css/foundation.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HiJack(website).esproj/Project.espressostorage" afterPath="$PROJECT_DIR$/HiJack(website).esproj/Project.espressostorage" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HiJack(website).esproj/user.zhaoxun321.espressostorage" afterPath="$PROJECT_DIR$/HiJack(website).esproj/user.zhaoxun321.espressostorage" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRInventory.php" afterPath="$PROJECT_DIR$/QRInventory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/camera_capture.js" afterPath="$PROJECT_DIR$/assets/js/camera_capture.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/faceDectection_camera.php" afterPath="$PROJECT_DIR$/faceDectection_camera.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/faceDectection_photoupload.php" afterPath="$PROJECT_DIR$/faceDectection_photoupload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/footer.php" afterPath="$PROJECT_DIR$/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/foundation.min.css" afterPath="$PROJECT_DIR$/assets/css/foundation.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header.php" afterPath="$PROJECT_DIR$/header.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/hijackme.css" afterPath="$PROJECT_DIR$/assets/css/hijackme.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/hijackme.js" afterPath="$PROJECT_DIR$/assets/js/hijackme.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/parallax.js" afterPath="$PROJECT_DIR$/assets/js/parallax.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HijackMe.iws" />
@@ -58,10 +45,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="img.model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/img.model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="52" selection-start="1056" selection-end="1056" vertical-scroll-proportion="-12.5" vertical-offset="60" max-vertical-offset="1110">
+            <state line="31" column="44" selection-start="878" selection-end="878" vertical-scroll-proportion="-2.556962" vertical-offset="263" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
@@ -70,72 +57,81 @@
       <file leaf-file-name="footer.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="19" selection-start="107" selection-end="154" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="195">
+            <state line="2" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="210">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hijackme.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/hijackme.js">
+      <file leaf-file-name="img_uploading.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/img_uploading.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modernizr.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/modernizr.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+            <state line="50" column="0" selection-start="1774" selection-end="1774" vertical-scroll-proportion="-7.5" vertical-offset="525" max-vertical-offset="2085">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#0#46#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/header.php">
+      <file leaf-file-name="Image.controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/Image.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="76" selection-start="334" selection-end="334" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="360">
+            <state line="160" column="14" selection-start="4416" selection-end="4416" vertical-scroll-proportion="-96.875" vertical-offset="0" max-vertical-offset="2655">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="faceDectection_camera.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/faceDectection_camera.php">
+      <file leaf-file-name="conf.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/conf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="31" selection-start="614" selection-end="638" vertical-scroll-proportion="0.24816176" vertical-offset="0" max-vertical-offset="615">
+            <state line="6" column="27" selection-start="277" selection-end="285" vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="555">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="camera_capture.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/camera_capture.js">
+      <file leaf-file-name="photoStore.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photoStore.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="47" selection-start="1639" selection-end="1655" vertical-scroll-proportion="-6.923077" vertical-offset="375" max-vertical-offset="1335">
+            <state line="7" column="39" selection-start="215" selection-end="215" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="2280">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="faceDectection_photoupload.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/faceDectection_photoupload.php">
+      <file leaf-file-name="facePlus.model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/facePlus.model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="27" selection-start="146" selection-end="191" vertical-scroll-proportion="-0.56962025" vertical-offset="0" max-vertical-offset="225">
+            <state line="4" column="58" selection-start="108" selection-end="117" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hijackme.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/hijackme.css">
+      <file leaf-file-name="class.controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/class.controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="13" selection-start="1428" selection-end="1428" vertical-scroll-proportion="-6.5636363" vertical-offset="854" max-vertical-offset="1440">
+            <state line="17" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="-5.0" vertical-offset="135" max-vertical-offset="735">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="facepp_sdk.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/sdk/php/facepp_sdk.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="0" selection-start="1722" selection-end="1722" vertical-scroll-proportion="-8.125" vertical-offset="555" max-vertical-offset="1320">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/sdk/php/demo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="158" selection-end="340" vertical-scroll-proportion="-2.5" vertical-offset="60" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -162,19 +158,37 @@
         <option value="$PROJECT_DIR$/assets/js/vendor/parallax.js" />
         <option value="$PROJECT_DIR$/FaceDectection.php" />
         <option value="$PROJECT_DIR$/faceDectection.php" />
-        <option value="$PROJECT_DIR$/conf.php" />
         <option value="$PROJECT_DIR$/lib/sdk/facepp_sdk.php" />
         <option value="$PROJECT_DIR$/QRInventory.php" />
-        <option value="$PROJECT_DIR$/footer.php" />
-        <option value="$PROJECT_DIR$/header.php" />
-        <option value="$PROJECT_DIR$/faceDectection_photoupload.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/assets/js/parallax.js" />
-        <option value="$PROJECT_DIR$/assets/js/hijackme.js" />
-        <option value="$PROJECT_DIR$/assets/css/hijackme.css" />
-        <option value="$PROJECT_DIR$/assets/js/camera_capture.js" />
         <option value="$PROJECT_DIR$/faceDectection_camera.php" />
+        <option value="$PROJECT_DIR$/assets/js/camera_capture.js" />
+        <option value="$PROJECT_DIR$/assets/js/parallax.js" />
+        <option value="$PROJECT_DIR$/modal/db.connection.php" />
+        <option value="$PROJECT_DIR$/controller/db.connection.php" />
+        <option value="$PROJECT_DIR$/controller/db.op.php" />
+        <option value="$PROJECT_DIR$/controller/Image.op.php" />
+        <option value="$PROJECT_DIR$/controller/Image.controller.php" />
+        <option value="$PROJECT_DIR$/FaceResult.php" />
+        <option value="$PROJECT_DIR$/assets/js/hijackme.js" />
+        <option value="$PROJECT_DIR$/assets/css/foundation.min.css" />
+        <option value="$PROJECT_DIR$/faceDectection_photoupload.php" />
+        <option value="$PROJECT_DIR$/header.php" />
+        <option value="$PROJECT_DIR$/assets/css/hijackme.css" />
+        <option value="$PROJECT_DIR$/controller/class.controller.php" />
+        <option value="$PROJECT_DIR$/lib/sdk/php/facepp_sdk.php" />
+        <option value="$PROJECT_DIR$/photoStore.php" />
+        <option value="$PROJECT_DIR$/footer.php" />
+        <option value="$PROJECT_DIR$/model/facePlus.model.php" />
+        <option value="$PROJECT_DIR$/assets/js/img_uploading.js" />
+        <option value="$PROJECT_DIR$/model/img.model.php" />
+        <option value="$PROJECT_DIR$/conf.php" />
       </list>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <option name="servers">
+      <server host="127.0.0.1" name="PHPSTORM" />
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="php" />
@@ -239,11 +253,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HijackMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HijackMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HijackMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HijackMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HijackMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HijackMe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -326,15 +390,30 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Controller" />
       <recent name="$PROJECT_DIR$/js/vendor" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Web Application.PHPSTORM">
+    <configuration default="false" name="Image.controller.php" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" temporary="true" uri="http://localhost:63342/HijackMe/controller/Image.controller.php">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="CHROME" server_name="phpstorm">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -346,7 +425,20 @@
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
-    <list size="0" />
+    <configuration default="false" name="PHPSTORM" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="CHROME" server_name="PHPSTORM">
+      <RunnerSettings RunnerId="PhpWebAppDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpWebAppDebugRunner" />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.PHPSTORM" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.Image.controller.php" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Image.controller.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
@@ -376,17 +468,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="22" width="1267" height="722" extended-state="1" />
+    <frame x="13" y="22" width="1267" height="722" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25387755" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27020407" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3984127" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -417,19 +509,196 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="18" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+        <state line="2" column="19" selection-start="107" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="195">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/photoStore.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/hijackme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="581">
+        <state line="20" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/modernizr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="76" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/faceDectection_camera.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="31" selection-start="614" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/camera_capture.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="47" selection-start="1639" selection-end="1655" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/faceDectection_photoupload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="146" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/hijackme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="13" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1440">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="35" selection-start="2173" selection-end="2215" vertical-scroll-proportion="0.0" vertical-offset="326" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="107" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/hijackme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/modernizr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="76" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/faceDectection_camera.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="31" selection-start="614" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/camera_capture.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="47" selection-start="1639" selection-end="1655" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/faceDectection_photoupload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="146" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/hijackme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="13" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1440">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="52" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="107" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/hijackme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/modernizr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="76" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/faceDectection_camera.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="31" selection-start="614" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/camera_capture.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="47" selection-start="1639" selection-end="1655" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/faceDectection_photoupload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="146" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/hijackme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="13" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1440">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
           <folding />
         </state>
       </provider>
@@ -439,104 +708,161 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/foundation.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="27" selection-start="24" selection-end="27" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
-          <folding>
-            <element signature="e#88248#88574#2" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/hijackmeAnimation.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
+        <state line="7" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/QRInventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="2" selection-start="312" selection-end="312" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/faceDectection_photoupload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="146" selection-end="191" vertical-scroll-proportion="-0.56962025" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/parallax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="240" selection-start="945" selection-end="945" vertical-scroll-proportion="-8.653846" vertical-offset="75" max-vertical-offset="1320">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/modernizr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="568">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="19" selection-start="107" selection-end="154" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/hijackme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="76" selection-start="334" selection-end="334" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/hijackme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="13" selection-start="1428" selection-end="1428" vertical-scroll-proportion="-6.5636363" vertical-offset="854" max-vertical-offset="1440">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="52" selection-start="1056" selection-end="1056" vertical-scroll-proportion="-12.5" vertical-offset="60" max-vertical-offset="1110">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/camera_capture.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="47" selection-start="1639" selection-end="1655" vertical-scroll-proportion="-6.923077" vertical-offset="375" max-vertical-offset="1335">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/faceDectection_camera.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="614" selection-end="638" vertical-scroll-proportion="0.24816176" vertical-offset="0" max-vertical-offset="615">
+        <state line="14" column="14" selection-start="923" selection-end="923" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/parallax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="44" selection-start="57351" selection-end="57351" vertical-scroll-proportion="0.36619717" vertical-offset="737" max-vertical-offset="1305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/camera_capture.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="22" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/hijackme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/foundation.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="42" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/faceDectection_photoupload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="58" selection-start="197" selection-end="197" vertical-scroll-proportion="-2.9583333" vertical-offset="4" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="38" selection-start="2598" selection-end="2610" vertical-scroll-proportion="-13.583333" vertical-offset="544" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/hijackme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="0" selection-start="2162" selection-end="2162" vertical-scroll-proportion="-18.961538" vertical-offset="1517" max-vertical-offset="2145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="804" selection-end="804" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/db.controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="14" selection-start="161" selection-end="169" vertical-scroll-proportion="0.1891892" vertical-offset="0" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/Image.controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="14" selection-start="4416" selection-end="4416" vertical-scroll-proportion="-96.875" vertical-offset="0" max-vertical-offset="2655">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/class.controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="-5.0" vertical-offset="135" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sdk/php/facepp_sdk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1722" selection-end="1722" vertical-scroll-proportion="-8.125" vertical-offset="555" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photoStore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="39" selection-start="215" selection-end="215" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="2280">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sdk/php/demo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="158" selection-end="340" vertical-scroll-proportion="-2.5" vertical-offset="60" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/facePlus.model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="58" selection-start="108" selection-end="117" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/img_uploading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1774" selection-end="1774" vertical-scroll-proportion="-7.5" vertical-offset="525" max-vertical-offset="2085">
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/img.model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="44" selection-start="878" selection-end="878" vertical-scroll-proportion="-2.556962" vertical-offset="263" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="27" selection-start="277" selection-end="285" vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="555">
           <folding />
         </state>
       </provider>
