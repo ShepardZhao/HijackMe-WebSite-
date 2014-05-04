@@ -13,6 +13,8 @@ class Image {
     private $maxSize = '1048576'; // bytes (1048576 bytes = 1 meg)
     private $allowedExtensions = array('jpg','png','gif');
     private $type;
+    private $nwidth;
+    private $nheight;
     private $printError = TRUE;
     private $error = '';
 
@@ -124,6 +126,38 @@ class Image {
         return $this-> type;
     }
 
+    //get newwidth
+    public function getNewWidth(){
+        return $this -> nwidth;
+    }
+
+
+    //get newheight
+    public function getNewheight(){
+        return $this -> nheight;
+    }
+
+
+    //get geolocation Longitude, Latitude
+    public function getLongitude(){
+
+    }
+
+
+    //get getCreatedTime
+    public function getLatitude(){
+
+    }
+
+
+    //get createdtime
+    public function getCreatedTime(){
+       $getimagedata = exif_read_data($this -> destination.$this -> fileName,0,true);
+
+        return $getimagedata;
+
+    }
+
     //imagecopyresized to resize the image
     public function resize($tempfile,$dst_w,$dst_h){
         list($src_w,$src_h)=getimagesize($tempfile);  // get primitve image
@@ -155,6 +189,8 @@ class Image {
         $target = imagecreatetruecolor($dst_w, $dst_h);
         $final_w = intval($w * $scale);
         $final_h = intval($h * $scale);
+        $this -> nwidth = $final_w;
+        $this -> nheight = $final_h;
         imagecopyresampled($target, $croped, 0, 0, 0, 0, $final_w,$final_h, $w, $h);
 
 
@@ -164,6 +200,8 @@ class Image {
         $this -> error ='';
 
     }
+
+
 
 
 

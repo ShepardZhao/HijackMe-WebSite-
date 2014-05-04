@@ -5,25 +5,47 @@
 //import all class controller
 require_once '../conf.php';
 require_once 'db.controller.php';
-require_once 'image.controller.php';
+require_once 'Image.controller.php';
+require_once 'db.op.controller.php';
+require_once 'general.controller.php';
 require_once '../lib/sdk/php/facepp_sdk.php';
 
 
 //inital class
 
 /**
- * $db class : database connection
+ * $General class : generate the time id for item
  */
+$general = new General(time());
 
-$Db = new DataBase(HostName,UserName,Password,Database);
 /**
  * end
  */
 
 /**
+ * $db class : database connection
+ */
+
+$db = new DataBase(HostName,UserName,Password,Database);
+/**
+ * end
+ */
+
+
+/**
+ * Db operator class : database operation
+ */
+$dbop = new DbOperateor($Db);
+
+/**
+ * end
+ */
+
+
+/**
  * $Image class : upload the file to local, and simple image operation such as crop and resize
  */
-$Image = new Image();
+$image = new Image();
 
 /**
  * end

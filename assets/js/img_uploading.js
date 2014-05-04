@@ -34,33 +34,39 @@ $(document).ready(function(){
     //function of ajaxFileUpload()
     function ajaxFileUpload()
     {
-        $.ajaxFileUpload
-        (
-            {
-                url:'/model/img.model.php',
-                secureuri:false,
-                fileElementId:'photouploadinput',
-                dataType: 'json',
-                success: function (data)
+        try{
+            $.ajaxFileUpload
+            (
                 {
-                    if(data.success==1){
-                    //success
-                    $('#image_zone').fadeOut(1000,function(){$(this).attr('src',data.imagepath).fadeIn(1000);
-                        $('.imagepath').empty().text('File bytes: '+data.imgtype+',  FileType: '+ data.imgsize+' , path: ' +data.imagepath);
-                        $('#buttonsubmit').removeClass('disabled');
+                    url:'/model/img.model.php',
+                    secureuri:false,
+                    fileElementId:'photouploadinput',
+                    dataType: 'json',
+                    success: function (data)
+                    {   console.log(data);
+                        if(data.success==1){
+                            //success
+                            $('#image_zone').fadeOut(1000,function(){$(this).attr('src',data.imagepath).fadeIn(1000);
+                                $('.imagepath').empty().text('File bytes: '+data.imgtype+',  FileType: '+ data.imgsize+' , path: ' +data.imagepath);
+                                $('#buttonsubmit').removeClass('disabled');
 
-                    });
+                            });
+
+                        }
+                        else if(data.success==0){
+                            alert(data)
+                        }
+
 
                     }
-                else if(data.success==0){
-                    alert(data)
                 }
+            )
+            return false;
 
+        }catch(err){
+            alert(err);
+        }
 
-                }
-            }
-        )
-        return false;
     }
 
 

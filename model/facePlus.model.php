@@ -5,8 +5,8 @@ require_once '../controller/class.controller.php';
 if(isset($_POST['anysislyurl']) || isset($_POST['imagename'])&& $_POST['acid']==0){
 
 #detect image by local
-    $params=array('img'=>'../faceImages/'.$_POST['imagename']);
-    $params['attribute'] = 'gender,age,race,smiling,glass,pose';
+    #detect image by url
+    $params=array('url'=>$_POST['anysislyurl']);
     $response = $facepp->execute('/detection/detect',$params);
     print_r($response);
 

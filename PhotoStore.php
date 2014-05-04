@@ -1,15 +1,3 @@
-<?php
-include_once 'controller/class.controller.php';
-if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
-
-
-    if(isset($_POST['anysislyurl']) && $_POST['acid']==0){
-
-        print_r($_POST['anysislyurl']);
-    }
-
-    ?>
-
     <a class="close-reveal-modal close-reveal-modal-photostore">&#215;</a>
 
     <div class="off-canvas-wrap" data-offcanvas>
@@ -142,6 +130,3 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
         </div>
     </div>
 
-<?php
-}
-?>
