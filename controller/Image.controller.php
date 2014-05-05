@@ -10,13 +10,13 @@ class Image {
     //default settings
     private $destination;
     private $fileName;
-    private $maxSize = '1048576'; // bytes (1048576 bytes = 1 meg)
-    private $allowedExtensions = array('jpg','png','gif');
+    private $maxSize = '2048576'; // bytes (1048576 bytes = 1 meg)
+    private $allowedExtensions = array('jpg','png','gif','JPG','PNG','GIF');
     private $type;
     private $nwidth;
     private $nheight;
     private $printError = TRUE;
-    private $error = '';
+    public $error = '';
 
     //START: Functions to Change Default Settings
     public function setDestination($newDestination) {
@@ -94,7 +94,7 @@ class Image {
 
     //Get attributes
     //get error info
-    public function getError(){
+    public function Error(){
         if ($this -> error !==''){
             return false;
         }
@@ -137,25 +137,14 @@ class Image {
         return $this -> nheight;
     }
 
-
-    //get geolocation Longitude, Latitude
-    public function getLongitude(){
-
+    //get error message
+    public function getErrorMessage(){
+        return $this-> error;
     }
-
-
-    //get getCreatedTime
-    public function getLatitude(){
-
-    }
-
-
     //get createdtime
     public function getCreatedTime(){
-       $getimagedata = exif_read_data($this -> destination.$this -> fileName,0,true);
-
-        return $getimagedata;
-
+       $getexif = read_exif_data($this->destination.$this -> fileName);
+       return  $getexif['DateTime'];
     }
 
     //imagecopyresized to resize the image
@@ -203,9 +192,37 @@ class Image {
 
 
 
+    //geolocation extra from image
+    public function readGPSinfoEXIF()
+    {
+        $exif=read_exif_data($this->destination.$this->fileName);
+        if(!$exif || $exif['GPSLatitude']== '') {
+            return false;
+        } else {
 
+            $lat_ref = $exif['GPSLatitudeRef'];
+            $lat = $exif['GPSLatitude'];
+            list($num, $dec) = explode('/', $lat[0]);
+            $lat_s = $num / $dec;
+            list($num, $dec) = explode('/', $lat[1]);
+            $lat_m = $num / $dec;
+            list($num, $dec) = explode('/', $lat[2]);
+            $lat_v = $num / $dec;
 
-    //END: Helper Functions
+            $lon_ref = $exif['GPSLongitudeRef'];
+            $lon = $exif['GPSLongitude'];
+            list($num, $dec) = explode('/', $lon[0]);
+            $lon_s = $num / $dec;
+            list($num, $dec) = explode('/', $lon[1]);
+            $lon_m = $num / $dec;
+            list($num, $dec) = explode('/', $lon[2]);
+            $lon_v = $num / $dec;
+
+            $gps_int = array($lat_s + $lat_m / 60.0 + $lat_v / 3600.0, $lon_s
+            + $lon_m / 60.0 + $lon_v / 3600.0);
+            return $gps_int;
+        }
+    }
 
 }
 /**

@@ -1,0 +1,73 @@
+20140503T110301: hijackme.tk/model/img.model.php
+PHP Warning:  require_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Fatal error:  require_once(): Failed opening required 'image.controller.php' (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+
+20140503T110527: hijackme.tk/model/img.model.php
+PHP Warning:  require_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Fatal error:  require_once(): Failed opening required 'image.controller.php' (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+
+20140503T111538: hijackme.tk/model/img.model.php
+PHP Warning:  require_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Fatal error:  require_once(): Failed opening required 'image.controller.php' (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+
+20140503T112005: hijackme.tk/model/img.model.php
+PHP Warning:  require_once(Actual_Linkcontroller/class.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/model/img.model.php on line 9
+PHP Fatal error:  require_once(): Failed opening required 'Actual_Linkcontroller/class.controller.php' (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/model/img.model.php on line 9
+
+20140503T112310: hijackme.tk/model/img.model.php
+PHP Warning:  require_once(/hermes/bosoraweb184/b2231/ipg.hijackmetk/modelcontroller/class.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/model/img.model.php on line 9
+PHP Fatal error:  require_once(): Failed opening required '/hermes/bosoraweb184/b2231/ipg.hijackmetk/modelcontroller/class.controller.php' (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/model/img.model.php on line 9
+
+20140503T112436: hijackme.tk/model/img.model.php
+PHP Warning:  include_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  include_once(): Failed opening 'image.controller.php' for inclusion (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  mysqli::mysqli(): (HY000/2003): Can't connect to MySQL server on '205.178.146.111' (111) i
+20140503T112454: hijackme.tk/model/img.model.php
+PHP Warning:  include_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  include_once(): Failed opening 'image.controller.php' for inclusion (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  mysqli::mysqli(): (HY000/2003): Can't connect to MySQL server on '205.178.146.111' (111) i
+20140503T112455: hijackme.tk/model/img.model.php
+PHP Warning:  include_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  include_once(): Failed opening 'image.controller.php' for inclusion (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  mysqli::mysqli(): (HY000/2003): Can't connect to MySQL server on '205.178.146.111' (111) i
+20140503T112516: hijackme.tk/model/img.model.php
+PHP Warning:  include_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  include_once(): Failed opening 'image.controller.php' for inclusion (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  mysqli::mysqli(): (HY000/2003): Can't connect to MySQL server on '205.178.146.111' (111) i
+20140503T112646: hijackme.tk/model/img.model.php
+PHP Warning:  include_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  include_once(): Failed opening 'image.controller.php' for inclusion (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  mysqli::mysqli(): (HY000/2003): Can't connect to MySQL server on '205.178.146.111' (111) i
+20140503T113029: hijackme.tk/model/img.model.php
+PHP Warning:  include_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  include_once(): Failed opening 'image.controller.php' for inclusion (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'hijackme'@'10.%' to database 'hija
+20140503T113303: hijackme.tk/model/img.model.php
+PHP Warning:  include_once(image.controller.php): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  include_once(): Failed opening 'image.controller.php' for inclusion (include_path='.:/usr/local/lib/php-5.3.13/lib/php') in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/class.controller.php on line 8
+PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'hijackme'@'10.%' to database 'hija
+20140503T114107: hijackme.tk/model/img.model.php
+PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'hijackme'@'10.%' to database 'hijacke' in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/db.controller.php on line 19
+
+20140503T114303: hijackme.tk/model/img.model.php
+PHP Warning:  mysqli::mysqli(): (42000/1044): Access denied for user 'hijackme'@'10.%' to database 'hijacke' in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/db.controller.php on line 19
+
+20140503T233441: hijackme.tk/model/img.model.php
+PHP Warning:  getimagesize(../faceImages/photo.JPG): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 163
+PHP Warning:  Division by zero in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 166
+PHP Warning:  imagecreatefromjpeg(../faceImages/photo.JPG): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 183
+PHP
+20140503T233616: hijackme.tk/model/img.model.php
+PHP Warning:  getimagesize(../faceImages/photo.JPG): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 163
+PHP Warning:  Division by zero in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 166
+PHP Warning:  imagecreatefromjpeg(../faceImages/photo.JPG): failed to open stream: No such file or directory in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 183
+PHP
+20140503T233658: hijackme.tk/model/img.model.php
+PHP Warning:  Division by zero in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 166
+PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error:  in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 183
+Empty input file
+PHP Warning:  imagecreatefromjpeg(): '../faceImages/' is not a valid JPEG file in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 183
+PHP Warning:  imagecreatetrue
+20140504T000447: hijackme.tk/model/img.model.php
+PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 11392 bytes) in /hermes/bosoraweb184/b2231/ipg.hijackmetk/controller/Image.controller.php on line 183
+

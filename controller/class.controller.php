@@ -11,6 +11,7 @@ require_once 'general.controller.php';
 require_once '../lib/sdk/php/facepp_sdk.php';
 
 
+
 //inital class
 
 /**
@@ -26,7 +27,7 @@ $general = new General(time());
  * $db class : database connection
  */
 
-$db = new DataBase(HostName,UserName,Password,Database);
+//$db = new DataBase(HostName,UserName,Password,Database);
 /**
  * end
  */
@@ -35,7 +36,7 @@ $db = new DataBase(HostName,UserName,Password,Database);
 /**
  * Db operator class : database operation
  */
-$dbop = new DbOperateor($Db);
+//$dbop = new DbOperateor($Db);
 
 /**
  * end
@@ -53,12 +54,15 @@ $image = new Image();
 
 
 /**
- * $facepp
+ * $facepp api
  */
 $facepp = new Facepp();
 /**
  * end
  */
+
+
+
 
 /**
  * end

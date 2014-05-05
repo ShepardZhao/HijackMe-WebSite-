@@ -5,11 +5,7 @@ require_once 'facepp_sdk.php';
 ########################
 $facepp = new Facepp();
 
-#detect local image 
-$params=array('img'=>'{image file path}');
-$params['attribute'] = 'gender,age,race,smiling,glass,pose';
-$response = $facepp->execute('/detection/detect',$params);
-print_r($response);
+
 
 #detect image by url
 $params=array('url'=>'http://www.faceplusplus.com.cn/wp-content/themes/faceplusplus/assets/img/demo/1.jpg');

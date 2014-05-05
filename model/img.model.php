@@ -1,6 +1,6 @@
 <?php
-if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
-{
+   if($_SERVER['REQUEST_METHOD']==='POST'){
+
 /**
  *
  * img model
@@ -24,29 +24,31 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
     $image -> setType($_FILES['uploadfile']["type"]);
     //upload un-resize image
     $image -> upload($_FILES['uploadfile']);
+
+    //getGloactionfirst
+    $gelocation = $image ->readGPSinfoEXIF('../faceImages/'.$image-> getfilename());
+
+    //getltimestamp
+    $getstmap = $image -> getCreatedTime('../faceImages/'.$image-> getfilename());
+
     //resize image and save again
-    $image -> resize('../faceImages/'.$image-> getfilename(),400,300);
+    //
 
+    if($image -> Error()){
+        //add current to database
+        echo json_encode(array('success'=>1, 'id'=> $general -> getgenerateID('img'),'name'=>$image-> getfilename(),'GPSLatitudeRef'=>$image->readGPSinfoEXIF(),'width'=>$image->getNewWidth(),'height'=>$image->getNewheight(),'createdDate'=>$image->getCreatedTime(),'imgtype'=>$image ->getType(), 'imgsize'=>$image->getfilesize(), 'imageabpath'=>'../faceImages/'.$image-> getfilename(),'imagepath'=>Actual_Link.'/faceImages/'.$image-> getfilename()));
+        $image -> resize('../faceImages/'.$image-> getfilename(),400,300);
 
-    if($image -> getError()){
-        //get img id
-       $getimgid = $general -> getgenerateID('img'); //imgid
-       $getnew_width = $image -> getNewWidth(); //img latest width
-       $getnew_height = $image -> getNewheight();//img latest height
-       $getimgtime = $image -> getCreatedTime();
-        //add current image to db
-
-
-        echo json_encode(array('success'=>1, 'data'=>$getimgtime,'imgtype'=>$image ->getType(), 'imgsize'=>$image->getfilesize(), 'imagepath'=>Actual_Link.'/faceImages/'.$image-> getfilename()));
     }
     else{
         $image -> delete('../faceImages/'.$image->getfilename());
-        echo json_encode(array('success'=>0));
+        echo json_encode(array('success'=>0,'error'=>$image->getErrorMessage()));
     }
 
 /**
  * end
  */
-}
+   }
+
 
 ?>
