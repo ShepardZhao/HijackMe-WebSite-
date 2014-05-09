@@ -22,6 +22,7 @@ class Facepp{
     var $api_key = '97472e5181c295649575cd1d1f54c387';
     var $api_secret = '4Brkc8EIoaKfD_T_BQjGtlNnoBq100jQ';
 
+
     public function __construct($api_key=NULL, $api_secret=NULL, $server=NULL){
         if($api_key){
             $this->api_key = $api_key;
@@ -79,4 +80,9 @@ class Facepp{
         curl_close($curl_handle);
         return array('http_code'=>$reponse_header['http_code'],'request_url'=>$request_url,'body'=>$response_text);
     }
+
+
+
+
+
 }

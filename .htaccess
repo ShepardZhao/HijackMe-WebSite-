@@ -1,0 +1,7 @@
+# Begin cache control #
+Header unset Cache-Control
+Header unset Expires
+Header unset Last-Modified
+FileETag None
+Header unset Pragma
+# End cache control #

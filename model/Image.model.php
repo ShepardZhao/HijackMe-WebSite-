@@ -10,8 +10,8 @@ class Image {
     //default settings
     private $destination;
     private $fileName;
-    private $maxSize = '2048576'; // bytes (1048576 bytes = 1 meg)
-    private $allowedExtensions = array('jpg','png','gif','JPG','PNG','GIF');
+    private $maxSize = '10048576'; // bytes (1048576 bytes = 1 meg)
+    private $allowedExtensions = array('jpg','png','gif','JPG','PNG','GIF','jpeg');
     private $type;
     private $nwidth;
     private $nheight;
@@ -94,12 +94,12 @@ class Image {
 
     //Get attributes
     //get error info
-    public function Error(){
-        if ($this -> error !==''){
-            return false;
+    public function NonError(){
+        if ($this -> error ==''){
+            return true;
         }
         else{
-            return true;
+            return false;
         }
     }
 
@@ -144,11 +144,16 @@ class Image {
     //get createdtime
     public function getCreatedTime(){
        $getexif = read_exif_data($this->destination.$this -> fileName);
-       return  $getexif['DateTime'];
+        if(isset($getexif['DateTime'])){
+           return $getexif['DateTime'];
+        }
+        else{
+           return date("Y-m-d H:i:s", $getexif['FileDateTime']);
+        }
     }
 
     //imagecopyresized to resize the image
-    public function resize($tempfile,$dst_w,$dst_h){
+    public function resize($tempfile,$dst_w,$dst_h,$resetName){
         list($src_w,$src_h)=getimagesize($tempfile);  // get primitve image
 
         $dst_scale = $dst_h/$dst_w; //dst ratio
@@ -184,7 +189,7 @@ class Image {
 
 
         //save
-        imagejpeg($target, $this->getDestination().$this -> getfilename());
+        imagejpeg($target, $this->getDestination().$resetName.$this -> getfilename());
         imagedestroy($target);
         $this -> error ='';
 

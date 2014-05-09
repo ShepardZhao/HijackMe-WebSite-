@@ -4,11 +4,12 @@
  */
 //import all class controller
 require_once '../conf.php';
-require_once 'db.controller.php';
-require_once 'Image.controller.php';
-require_once 'db.op.controller.php';
-require_once 'general.controller.php';
 require_once '../lib/sdk/php/facepp_sdk.php';
+require_once 'db.model.php';
+require_once 'Image.model.php';
+require_once 'db.op.model.php';
+require_once 'match.model.php';
+require_once 'general.model.php';
 
 
 
@@ -27,7 +28,7 @@ $general = new General(time());
  * $db class : database connection
  */
 
-//$db = new DataBase(HostName,UserName,Password,Database);
+$db = new DataBase(HostName,UserName,Password,Database);
 /**
  * end
  */
@@ -36,7 +37,7 @@ $general = new General(time());
 /**
  * Db operator class : database operation
  */
-//$dbop = new DbOperateor($Db);
+$dbop = new DbOperateor($db);
 
 /**
  * end
@@ -62,7 +63,16 @@ $facepp = new Facepp();
  */
 
 
+/**
+ * $match class : compare two faces's land mark then found it similarity
+ */
 
+
+$match = new Match();
+
+/**
+ * end
+ */
 
 /**
  * end

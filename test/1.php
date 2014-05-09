@@ -1,7 +1,3 @@
-<?php
- $params=array('url'=>$getarray['imagepath']);
- $response = $facepp->execute('/detection/detect',$params);
- print_r(1);
-            
+<script src="../assets/js/jquery-1.11.0.min.js"></script>
+<script src="test1.js"></script>
 
-?>
