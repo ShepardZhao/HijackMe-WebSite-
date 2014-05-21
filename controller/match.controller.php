@@ -13,8 +13,12 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         //if the count of $result is more than 0 means current is not new
         $count = count($Matchresult);
         if($count>0){
+            //update the name for current photo
+            $match->updateNameForExistedPhoto($facePlusID,$Matchresult,$dbop);
             //found matched result, and return current photo info and matched result
             echo json_encode(array('success'=>1,'number'=>$count, 'result'=>$Matchresult));
+
+
 
 
         }

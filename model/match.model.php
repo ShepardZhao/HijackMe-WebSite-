@@ -1,10 +1,10 @@
 <?php
 class Match extends Facepp{
     private $silmarity;
-    public function getRestultOfMatch($currentfaceID,$getfaceArray){
+    public function getRestultOfMatch($currentfacePlusID,$getfaceArray){
         $matchArray=array();
         foreach($getfaceArray as $singleRecord){
-            if($this ->matching($currentfaceID,$singleRecord)){
+            if($this ->matching($currentfacePlusID,$singleRecord)){
                 //if reutrn the current is matched then push it to new array
                 $singleRecord['silmarilty'] = $this->silmarity;
                 array_push($matchArray,$singleRecord);
@@ -58,7 +58,7 @@ class Match extends Facepp{
     //return similarity
     private function returnIsSimilarity($result){
         $getSimilarity = json_decode($result['body'],1);
-        if($getSimilarity['similarity']>60){ // if comparable result is more then 70%
+        if($getSimilarity['similarity']>60){ // if comparable result is more then 60%
             $this-> silmarity = $getSimilarity;
             return true;
         }
@@ -81,11 +81,44 @@ class Match extends Facepp{
         }
     }
 
-    //face matched algorithm {from left_eye, mouth, nose, right_eye }
+
+   //split the record for the single record then get query for the name
+    public function updateNameForExistedPhoto($currentfacePlusID,$matchedArray,$dbop){
+        $getMaxSimilaryArray = $this->findMaxSimilarty($matchedArray);
+        //this record contains max records
+        $getNameArray = $dbop->queryNameByFacePlusId($getMaxSimilaryArray['FacePlusID']);
+        //get exact name
+        $name = $getNameArray['name'];
+
+
+        //according to facePlusID to get faceID
+
+        $currentFaceID = $dbop -> queryFaceIDByFacePlusID($currentfacePlusID);
+
+
+        //final insert the name for current photo
+        $dbop->insertNameForNewPhoto($currentFaceID['FaceID'],$currentfacePlusID,$name);
+
+    }
 
 
 
+    private function findMaxSimilarty($matchedArray){
+        $sotresimilarity = array();
+        $MaxSimilarity=null;
+        foreach($matchedArray as $matchedSingledResult){
+            array_push($sotresimilarity,$matchedSingledResult['silmarilty']);
+        }
+        $maxSimilarity = max($sotresimilarity);
 
+        foreach($matchedArray as $matchedSingledResult){
+            if($matchedSingledResult['silmarilty']===$maxSimilarity){
+                $MaxSimilarity=$matchedSingledResult;
+            }
+        }
+
+       return $MaxSimilarity;
+    }
 
 
 

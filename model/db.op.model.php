@@ -158,6 +158,73 @@ class DbOperateor extends DataBase{
      */
 
 
+    /**
+     * query and reutn the faceID
+     */
+    public function queryFaceIDByFacePlusID($facePlusID){
+        try{
+            $array=null;
+
+            if($stmt=$this->DataBaseCon->prepare("SELECT FaceID FROM FaceDataSet WHERE FacePlusID =?")){
+                $stmt->bind_param('s',$facePlusID);
+                $stmt->execute();
+                $stmt->bind_result($FaceID);
+                while ($stmt->fetch())
+                {
+                    $array =array('FaceID'=>$FaceID);
+                }
+                $stmt -> close();
+                return $array;
+            }
+            else{
+                return false;
+            }
+
+        }catch(Expection $e){
+            return false;
+        }
+
+
+    }
+
+    /**
+     * end
+     */
+
+
+    /**
+     * query and return the name
+     */
+    public function queryNameByFacePlusId($facePlusID){
+        try{
+            $array=null;
+
+            if($stmt=$this->DataBaseCon->prepare("SELECT name FROM FaceDataSet WHERE FacePlusID =?")){
+                $stmt->bind_param('s',$facePlusID);
+                $stmt->execute();
+                $stmt->bind_result($name);
+                while ($stmt->fetch())
+                {
+                    $array =array('name'=>$name);
+                }
+                $stmt -> close();
+                return $array;
+            }
+            else{
+                return false;
+            }
+
+        }catch(Expection $e){
+            return false;
+        }
+
+
+    }
+
+    /**
+     * end
+     */
+
 
     /**
      *  query face landmarks via photoDataSet
@@ -167,12 +234,12 @@ class DbOperateor extends DataBase{
         try{
             $object=array();
 
-            if($stmt=$this->DataBaseCon->prepare("SELECT ImageDataSet.ImgID,ImageDataSet.ImgPathWithPrimalUrl,ImageDataSet.ImgPathWithResizeUrl,ImageDataSet.ImgPathWithIconUrl, ImageDataSet.ImgDate, EventDataSet.Longitude, EventDataSet.Latitude, FaceDataSet.FaceID, FaceDataSet.FacePlusID,FaceDataSet.Age, FaceDataSet.Age_range, FaceDataSet.Gender, FaceDataSet.Glass, FaceDataSet.Race, FaceDataSet.Smiling, FaceDataSet.Pitch_angle, FaceDataSet.Roll_angle, FaceDataSet.Yaw_angle FROM EventDataSet, FaceDataSet, ImageDataSet WHERE EventDataSet.FaceID = FaceDataSet.FaceID AND EventDataSet.ImgID = ImageDataSet.ImgID")){
+            if($stmt=$this->DataBaseCon->prepare("SELECT ImageDataSet.ImgID,ImageDataSet.ImgPathWithPrimalUrl,ImageDataSet.ImgPathWithResizeUrl,ImageDataSet.ImgPathWithIconUrl, ImageDataSet.ImgDate, EventDataSet.Longitude, EventDataSet.Latitude, FaceDataSet.FaceID, FaceDataSet.FacePlusID,FaceDataSet.Age, FaceDataSet.Age_range, FaceDataSet.Gender, FaceDataSet.Glass, FaceDataSet.Race, FaceDataSet.Smiling, FaceDataSet.Pitch_angle, FaceDataSet.Roll_angle, FaceDataSet.Yaw_angle, name FROM EventDataSet, FaceDataSet, ImageDataSet WHERE EventDataSet.FaceID = FaceDataSet.FaceID AND EventDataSet.ImgID = ImageDataSet.ImgID")){
                 $stmt->execute();
-                $stmt->bind_result($ImgID,$ImgPathWithPrimalUrl,$ImgPathWithResizeUrl,$ImgPathWithIconUrl,$ImgDate,$Longitude,$Latitude,$FaceID,$FacePlusID,$Age,$Age_range,$Gender,$Glass,$Race,$Smiling,$Pitch_angle,$Roll_angle,$Yaw_angle);
+                $stmt->bind_result($ImgID,$ImgPathWithPrimalUrl,$ImgPathWithResizeUrl,$ImgPathWithIconUrl,$ImgDate,$Longitude,$Latitude,$FaceID,$FacePlusID,$Age,$Age_range,$Gender,$Glass,$Race,$Smiling,$Pitch_angle,$Roll_angle,$Yaw_angle,$name);
                 while ($stmt->fetch())
                 {
-                    $array =array('ImgID'=>$ImgID, 'ImgPathWithPrimalUrl'=>$ImgPathWithPrimalUrl,'ImgPathWithResizeUrl'=>$ImgPathWithResizeUrl,'ImgPathWithIconUrl'=>$ImgPathWithIconUrl, 'ImgDate'=>$ImgDate, 'Longitude'=>$Longitude, 'Latitude'=>$Latitude, 'faceID'=>$FaceID, 'FacePlusID'=>$FacePlusID,'Age'=>$Age, 'Age_range'=>$Age_range, 'Gender'=>$Gender, 'Glass'=>$Glass, 'Race'=>$Race, 'Smiling'=>$Smiling, 'Pitch_angle'=>$Pitch_angle, 'Roll_angle'=>$Roll_angle, 'Yaw_angle' => $Yaw_angle);
+                    $array =array('ImgID'=>$ImgID, 'ImgPathWithPrimalUrl'=>$ImgPathWithPrimalUrl,'ImgPathWithResizeUrl'=>$ImgPathWithResizeUrl,'ImgPathWithIconUrl'=>$ImgPathWithIconUrl, 'ImgDate'=>$ImgDate, 'Longitude'=>$Longitude, 'Latitude'=>$Latitude, 'faceID'=>$FaceID, 'FacePlusID'=>$FacePlusID,'Age'=>$Age, 'Age_range'=>$Age_range, 'Gender'=>$Gender, 'Glass'=>$Glass, 'Race'=>$Race, 'Smiling'=>$Smiling, 'Pitch_angle'=>$Pitch_angle, 'Roll_angle'=>$Roll_angle, 'Yaw_angle' => $Yaw_angle, 'name'=>$name);
                     array_push($object,$array);
                 }
                 $stmt -> close();
@@ -203,9 +270,78 @@ class DbOperateor extends DataBase{
 
 
 
+/**
+ * insert the name for a new face photo
+ */
+    public function insertNameForNewPhoto($faceID, $facePlusID, $name){
+        try{
+            if($stmt=$this->DataBaseCon->prepare("UPDATE FaceDataSet SET name=? WHERE FaceID=? AND FacePlusID=?")){
+                $stmt->bind_param('sss',$name,$faceID,$facePlusID);
+                $stmt->execute();
+                $stmt -> close();
+                return true;
+            }
+            else{
+                return false;
+            }
+
+        }catch(Expection $e){
+            return false;
+        }
+    }
 
 
 
+
+
+/**
+ * end
+ */
+
+
+
+
+
+/**
+ * login check
+ */
+
+public function loginCheck($username,$password){
+    try{
+        $object=array();
+
+        if($stmt=$this->DataBaseCon->prepare("SELECT userName,userPassword FROM UsersDataSet WHERE userName=? AND userPassword=?")){
+            $stmt->bind_param($username,md5($password));
+            $stmt->execute();
+            $stmt->bind_result($userName, $userPassword);
+            while ($stmt->fetch())
+            {
+                $array =array('userName'=>$userName, 'userPassword'=>$userPassword);
+                array_push($object,$array);
+            }
+            $stmt -> close();
+            if(count($object)>0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+
+    }catch(Expection $e){
+        return false;
+    }
+}
+
+
+
+
+/**
+ * end
+ */
 
 
 }

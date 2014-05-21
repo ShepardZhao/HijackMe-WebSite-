@@ -13,6 +13,28 @@
 }
 
 
+.verticalAndHorCenter{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+}
+
+
+.formMargin{
+    margin-top:29px;
+
+
+}
+
+.color_white{
+    color:#fff;
+}
+
 
 /** backgound setting up **/
 body{
@@ -44,9 +66,6 @@ body{
 ::-webkit-scrollbar {
     display: none;
 }
-
-
-
 
 
 .divgap{
@@ -166,27 +185,32 @@ body{
 
 
 /*** photo selection **/
-.graidphoto{
-    position: absolute;
-    height: 70px;
-    width:212px;
-    bottom: 20px;
-    color: white;
-    margin: 4px;
-    opacity:0;
-    background-image: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.9));
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
-    line-height: 80px;
-}
 
-.graidphoto:hover{
-    opacity:1;
-}
 
 
 .graidphotoButton{
     background-color: #e74c3c;
     border-color: #e74c3c;
+}
+
+
+
+/****** show edit *******/
+.showEdit{
+    opacity:0;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+.showEdit:hover{
+    opacity:1;
+
+}
+
+
+.login{
+
+
+
+
 }

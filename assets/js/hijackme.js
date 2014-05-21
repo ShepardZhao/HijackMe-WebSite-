@@ -4,10 +4,137 @@
 
 $(document).ready(function(){
 
+    $('body').hide();
+
+
+});
+
+
+
+$(window).load(function(){
+    $('body').show();
+    $('#logo').addClass('animated rotateInDownLeft').fadeIn(500,function(){
+        $('#beginsShow').addClass('animated bounceIn').fadeIn(500,function(){
+            $('.has-tip').addClass('animated fadeInUp').fadeIn();
+        });
+    });
+
+
+
+    /************************************ Login part *************************************/
+
+    $('body').on('click','#click_SignIn',function(){
+       var getLoginEmail = $('#loginEmail').val();
+       var getLoginPassword = $('#loginPassword').val();
+
+
+
+        var request = $.ajax({
+            url: 'controller/login.controller.php',
+            type: "POST",
+            data: {'loginEmail':getLoginEmail,'LoginPassword':getLoginPassword},
+            dataType: 'json'
+        });
+
+        request.done(function( data ) {
+           if(data.success==1){
+               window.location.href = "index.php";
+           }
+            else if(data.success==0){
+              $('<div data-alert class="alert-box alert ">'+data.message+'</div>').insertBefore('#signInZone');
+           }
+        });
+
+        request.fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+
+
+
+
+
+
+    });
+
+
+
+
+    /************************************ Login End *************************************/
+
+
+
+
+    /************************************ Sign Up part *************************************/
+
+    $('body').on('click','#click_signUp',function(){
+        var getRegEmail = $('#ResEmail').val();
+        var getPassword1= $('#ResPassword1').val();
+        var getPassword2 = $('#ResPassword2').val();
+        var request = $.ajax({
+            url: 'controller/register.controller.php',
+            type: "POST",
+            data: {'regEmail':getRegEmail,'regPassword1':getPassword1,'regPassword2':getPassword2},
+            dataType: 'json'
+        });
+
+        request.done(function( data ) {
+            if(data.success==1){
+                $('#form').foundation('reveal', 'close');
+            }
+            else{
+                $('<div data-alert class="alert-box alert ">Your user name alreay exeist or password does not match</div>').insertBefore('#signInZone');
+            }
+        });
+
+        request.fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+
+    });
+
+
+
+    /************************************ Sign Up End *************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * gobal variables
      */
-       window.photoidCollector = [];
+    window.photoidCollector = [];
 
     /**
      * end
@@ -74,9 +201,8 @@ $(document).ready(function(){
                     {
                         if(data.success==1){
                             //success
-                            console.log(data);
                             $('#image_zone').fadeOut(1000,function(){$(this).attr('src',data.imagePathWithResizeUrl).fadeIn(1000);
-                                $('.imagepath').empty().text('File bytes: '+data.imgtype+',  FileType: '+ data.imgsize+' , path: ' +data.imagepath);
+                                $('.imagepath').empty().text('File bytes: '+data.imgtype+',  FileType: '+ data.imgsize+' , path: ' +data.imagePathWithPrimalUrl);
                                 $('#buttonsubmit').text('Analyse').removeClass('disabled');
                                 window.imgjson = data;
                             });
@@ -143,7 +269,7 @@ $(document).ready(function(){
             }
             else if(data.success==1){
                 //get page facepair.html and then append to div of #loadingzone
-                $.get("facepair.html", function(getdata){
+                $.get("facepair.php", function(getdata){
                     $('#loadingzone').addClass('animated bounceOutLeft').fadeOut(500,function(){
 
                         $('#pre-faceAnalysis').append(getdata);
@@ -181,7 +307,6 @@ $(document).ready(function(){
      * Face base info insert
      */
     function CurrentFaceInfoToInsert(getCurrentValue){
-        console.log(getCurrentValue);
         var getCurrentAge = getCurrentValue.Age;
         var getCurrentAgeRange = getCurrentValue.Age_range;
         var getCurrentGender = getCurrentValue.Gender;
@@ -335,14 +460,16 @@ $(document).ready(function(){
         });
 
         request.done(function( data ) {
+            console.log(result);
             $('#matchedPhotoloading').addClass('animated fadeOut').fadeOut(500,function(){
 
                 if(data.number>0){
                     inertMatchedResult(data.result);
                 }
                 else if(data.number==0){
+
                     $('#MatchedZone').append('<div data-alert="" class="alert-box alert round">It looks like this is your first photo, Please input your name for it<a href="#" class="close">×</a></div>');
-                    $('#MatchedZone').append('<div class="row"><div class="large-12 columns"><form><div class="row"><div class="large-4 columns animated fadeInUp" style="left:16px"><input type="text" placeholder="Your name, ie. john" /></div><div class="large-1 columns end"><span class="postfix radius" id="addedName">Add</span></div></div></form></div></div>');
+                    $('#MatchedZone').append('<div class="row"><div class="large-12 columns"><form><div class="row"><div class="large-4 columns animated fadeInUp" style="left:16px"><input type="text" id="namearea" placeholder="Your name, ie. john" /></div><div class="large-1 columns end"><input type="hidden" id="getFaceID" value="'+result.faceID+'"><input type="hidden" id="getFacePlusID" value="'+result.FacePlusID+'"><span class="postfix radius addedName">Add</span></div></div></form></div></div>');
 
                 }
 
@@ -369,11 +496,11 @@ $(document).ready(function(){
         $('#MatchedZone').append('<div class="row"><div class="large-12 columns"><ul id="matchedPhotoThumbs" style="padding:19px" class="small-block-grid-2 medium-block-grid-3 large-block-grid-4"></ul></div></div>');
         $.each(result,function(key,value){
 
-            $('#matchedPhotoThumbs').append('<li class="animated gridphotolist rollIn" style="position:relative"><img class="th" src="'+value.ImgPathWithResizeUrl+'"><div class="graidphoto"><div class="row"><div class="small-6 large-6 columns selectzone"><a class="tiny button radius graidphotoButton">Detail</a> </div> <div class="small-6 large-6 columns"> <a id="'+value.value+'" class="clickedSelect tiny button radius graidphotoButton">Select</a></div></div></div></li>');
+            $('#matchedPhotoThumbs').append('<li class="animated gridphotolist rollIn"><div class="matchedImageWrap" style="position:relative"><img class="matchedImage th" id="'+value.faceID+'" src="'+value.ImgPathWithResizeUrl+'"></div><h4><small>'+value.name+'<div class="showEdit" id="'+value.faceID+'"> (Edit) </div></small></h4></li>');
         });
 
 
-   }
+    }
 
 
 
@@ -395,37 +522,121 @@ $(document).ready(function(){
      * select to add into photo containter
      */
 
-        $('body').on('click','.clickedSelect',function(){
-            var getcurrentThis = $(this);
-            var getCurrentPhotoID = $(this).attr('id');
-            var getParrent = $(this).parent()
-            photoidCollector.push(getCurrentPhotoID);
-            //hide current button and added tick
-            $(getParrent).fadeOut(500,function(){
-                $(getcurrentThis).remove();
-                $(this).append('<i class="fa fa-check"></i>').fadeIn();
+    $('body').on('click','.clickedSelect',function(){
+        var getcurrentThis = $(this);
+        var getCurrentPhotoID = $(this).attr('id');
+        var getParrent = $(this).parent()
+        photoidCollector.push(getCurrentPhotoID);
+        //hide current button and added tick
+        $(getParrent).fadeOut(500,function(){
+            $(getcurrentThis).remove();
+            $(this).append('<i class="fa fa-check"></i>').fadeIn();
 
-            });
-
-            console.log(photoidCollector);
         });
+
+    });
     /**
      * end
      */
 
 
-});
+    /**
+     * add a name
+     */
+
+    $('body').on('click','.addedName',function(){
+        if($('#namearea').val()!=''){
+
+            var name = $('#namearea').val();
+            var faceId = $('#getFaceID').val();
+            var facePlusId = $('#getFacePlusID').val();
+
+
+            var request = $.ajax({
+                url: 'controller/faceName.controller.php',
+                type: "POST",
+                data: {'faceID':faceId,'facePlusID':facePlusId,'name':name},
+                dataType: 'json'
+            });
+
+            request.done(function( data ) {
+                if(data.success==1){
+                    $('#MatchedZone').fadeOut(500,function(){
+                        $(this).empty();
+                        $(this).append('<div data-alert="" class="alert-box success round">Update Successed<a href="#" class="close">×</a></div>');
+                        $(this).fadeIn(500);
+                    });
+                }
+                else{
+                    alert("error");
+                }
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                alert( "Request failed: " + textStatus );
+            });
 
 
 
-$(window).ready(function(){
-    $('#logo').addClass('animated rotateInDownLeft').fadeIn(500,function(){
-        $('#beginsShow').addClass('animated bounceIn').fadeIn(500,function(){
-            $('.has-tip').addClass('animated fadeInUp').fadeIn();
-        });
+        }
+
+
 
 
     });
+    /**
+     * end
+     */
+
+
+    /**
+     * click those matched images and mark them all
+     */
+
+    $('body').on('click','.matchedImageWrap',function(){
+        var getfaceID = $(this).find('.matchedImage').attr('id');
+        if($(this).find('.fa').length>0){
+            $(this).find('.fa').addClass('bounceOut').fadeOut(500,function(){$(this).remove();});
+        }
+        else{
+            $(this).append('<i style="position:absolute;top:1.6em;left:2.5em;color:#e74c3c" class="animated bounceIn fa fa-check-circle-o fa-4x"></i>')
+
+        }
+
+    });
+
+
+    /**
+     * end
+     */
+
+
+    /**
+     * click and find on map
+     */
+
+    $('body').on('click','#clcik_Found_On_Map',function(){
+
+
+
+
+
+
+    });
+
+
+
+    /**
+     * end
+     */
+
+
+
+
+
+
+
+
 
 
 

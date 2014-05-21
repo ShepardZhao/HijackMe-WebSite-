@@ -1,6 +1,7 @@
-<a class="close-reveal-modal close-reveal-modal-photostore">&#215;</a>
+<?php include_once "m_header.php"?>
+<!-- photo uploading local server-->
 
-<div class="off-canvas-wrap" data-offcanvas>
+<div class="off-canvas-wrap" data-offcanvas >
     <div class="inner-wrap">
         <nav class="tab-bar">
             <section class="left-small">
@@ -11,36 +12,28 @@
         <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
                 <li><label>Menu</label></li>
-                <li id="click_Paried"><a href="#">Paried</a></li>
+                <li id="click_Paried"><a href="#">Pair</a></li>
                 <li id="click_photoStore"><a href="#">PhotoStore</a></li>
                 <li id="click_Event"><a href="#">Event</a></li>
                 <li id="clcik_Found_On_Map"><a href="#">Found On Map</a></li>
                 <li id="click_Generate_QR"><a href="#">Generate QR Code</a></li>
             </ul>
         </aside>
-        <section class="main-section" id="mainsection">
-            <!----- to paried section-->
-            <div class="row" id="toParied">
-                <div class="row">
-                    <div class="large-12 text-center columns">
-                        <img class="panel image_zone pair">
+        <section class="main-section"  id="mainsection" >
+                <div class="row text-center centerPosition">
+                    <div class="large-12 small-12 columns">
+                        <img id="image_zone" class="panel" exif="true" src="http://placehold.it/400x300&text=[photo]">
                     </div>
 
-                    <div class="large-12 columns">
-                        <div class="pair text-center" id="faceAnalysisResult"></div>
+                    <div class="large-12 small-12 columns">
+                        <a id="fileuploadfield" class="button round">Choose a photo<input type="file" name="uploadfile" id="photouploadinput"/></a>
+                        <div data-alert="" class="alert-box imagepath" style="display:none">
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="large-12 columns text-center"  id="MatchedZone">
 
-                            <!--if found the matched the photo then this place will be placed a lot photos-->
-
+                    <div class="large-12 small-12 columns">
+                        <a id="buttonsubmit" style="display:none" class="button alert disabled round"></a>
                     </div>
-                </div>
-
-
-
 
             </div>
             <!-- end -->
@@ -86,3 +79,4 @@
     </div>
 </div>
 
+<?php include_once "m_footer.php"?>
