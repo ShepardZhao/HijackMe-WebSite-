@@ -1,20 +1,23 @@
-
 <?php include_once 'header.php'?>
 <?php
-    if(isset($_SESSION['userSession'])){
-        header( 'Location: portal.php' ) ;
-    }
-    else{
+if(empty($_SESSION['userSession'])){
+    header( 'Location: portal.php');
+}
+else{
+
 ?>
-    <!-- containter begins--->
-    <div class="row containter  text-center">
-        <div class="large-12 small-12  medium-12 columns">
+        <!-- containter begins--->
+    <div class="row container text-center ">
        <!-- avatar begins-->
       <div class="row text-center">
 
           <div class="large-12 columns small-12 text-center" id="avatar">
-              <img id="logo" style="display:none"  src="assets/img/logo.png" >
+              <img id="logo" style="display:none"  class="icon" data-dropdown="userFnlist" src="<?php echo $_SESSION['userSession']['userPhoto']?>" >
+              <ul id="userFnlist" class="f-dropdown" data-dropdown-content>
+                  <li><a id="photoManagement">Photo Management</a></li>
+                  <li><a href="logout.php">Logo Out</a></li>
 
+              </ul>
           </div>
       </div>
         <!-- avatar ends -->
@@ -27,18 +30,14 @@
       <div class="row" style="display:none" id="beginsShow">
           <!----- for desktop and table only ----->
               <div class="hide-for-small-only large-4  medium-4 columns">
-                  <a data-dropdown="FaceDectectionDownload" data-options="is_hover:true" class="button Customerbutton"><h2 class="whitecolor"><i class="fa fa-crosshairs fa-3x"></i></h2></a>
-                  <ul id="FaceDectectionDownload" class="f-dropdown " data-dropdown-content>
-                      <li><a href="faceDectection_camera.php" data-reveal-id="Common_modal"   data-reveal-ajax="true" >Camera Capture</a></li>
-                      <li><a href="faceDectection_photoupload.php" data-reveal-id="Common_modal"   data-reveal-ajax="true" >Photo Upload</a></li>
-                  </ul>
+                  <a class="button Customerbutton" href="faceDectection_photoupload.php" data-reveal-id="Common_modal"   data-reveal-ajax="true" ><h2 class="whitecolor"><i class="fa fa-crosshairs fa-3x"></i></h2></a>
                   <h4 class="whitecolor track_font">Face Dectection</h4>
               </div>
 
 
 
-              <div class="hide-for-small-only large-4   medium-4 columns">
-                  <a href="photoStore.php" data-reveal-id="Common_modal"  data-reveal-ajax="true" class="button Customerbutton"><h2 class="whitecolor"><i class="fa fa-picture-o fa-3x"></i></h2></a>
+              <div class="hide-for-small-only large-4 medium-4 columns" >
+                  <a href="PhotoInventroy.php" data-reveal-id="Common_modal"  id="click_toPhotoStore" data-reveal-ajax="true" class="button Customerbutton"><h2 class="whitecolor"><i class="fa fa-picture-o fa-3x"></i></h2></a>
                   <h4 class="whitecolor track_font">Photo Store</h4>
 
               </div>
@@ -88,13 +87,13 @@
    </footer>
 
 
-    <!--- Modal calls --------->
 
 
-        </div>
-  </div>
+
+</div>
+
+
         <!--- containter end --->
 <?php }?>
-
 <?php include_once 'footer.php'?>
 

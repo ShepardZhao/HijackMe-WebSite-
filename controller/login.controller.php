@@ -1,16 +1,16 @@
 <?php
-require_once '../model/class.model.php';
-
+require_once('../model/class.model.php');
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $getLogin = $_POST['loginEmail'];
     $getLoginPassword= $_POST['LoginPassword'];
 
-    if(isset($getLogin) && isset($getLoginPassword)){
+    if(!empty($getLogin) && !empty($getLoginPassword)){
 
         //pass the login Email and password to check
-        if($dbop -> loginCheck($getLogin,$getLoginPassword)){
+        $loginArray =$dbop -> loginCheck($getLogin,$getLoginPassword);
+        if($loginArray){
             //after success login then given the session for it
-            $_SESSION['userSession'] = $getLogin;
+            $_SESSION['userSession'] = $loginArray[0];
             echo json_encode(array("success"=>1));
         }
         else{

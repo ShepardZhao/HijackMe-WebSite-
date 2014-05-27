@@ -3,14 +3,15 @@
  * class controller
  */
 //import all class controller
-require_once '../conf.php';
-require_once '../lib/sdk/php/facepp_sdk.php';
-require_once 'db.model.php';
-require_once 'Image.model.php';
-require_once 'db.op.model.php';
-require_once 'match.model.php';
-require_once 'general.model.php';
-
+require_once('conf.php');
+require_once(DOCUMENT_ROOT.'/lib/sdk/php/facepp_sdk.php');
+require_once('db.model.php');
+require_once('Image.model.php');
+require_once('db.op.model.php');
+require_once('match.model.php');
+require_once('general.model.php');
+require_once('loginFaceMatch.model.php');
+session_start();
 
 
 //inital class
@@ -73,6 +74,21 @@ $match = new Match();
 /**
  * end
  */
+
+
+/**
+ * $LoginFaceMatch class : compare the camera image to user images to found the best match to login
+ */
+
+$LoginFaceMatch = new LoginFaceMatch();
+
+
+/**
+ * end
+ */
+
+
+
 
 /**
  * end

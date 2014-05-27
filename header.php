@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="assets/css/foundation.min.css">
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css?v=2.1.5"/>
     <link rel="stylesheet" href="assets/css/hijackme.css">
+
 
 </head>
 <body>

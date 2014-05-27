@@ -22,7 +22,15 @@
     </div>
 
 
+
     <div class="row">
+        <div class="large-12 small-12 columns">
+            <input type="file" id="regUpload" name="uploadfile" >
+        </div>
+    </div>
+
+
+    <div class="row" id="signUpZone">
     <div class="large-12 small-12 columns text-center">
         <a class="button tiny" id="click_signUp">Sign up</a>
     </div>

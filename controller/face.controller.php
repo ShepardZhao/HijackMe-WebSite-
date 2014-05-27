@@ -1,20 +1,17 @@
 <?php
-require_once '../model/class.model.php';
-
+require_once('../model/class.model.php');
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
+
+    $userSession = $_SESSION['userSession']['userID'];
 
     //if passed json data is not empty
     if(isset($_POST['imgjson'])){
         $getarray=$_POST['imgjson'];
 
-        if(isset($getarray['imageAbsolutePathWithResize'])){
-            //pass the image to face++ to check whether a face
-           // $params=array('url'=>$getarray['imagepath']);
-            //$response = $facepp->execute('/detection/detect',$params);
+        if(isset($getarray['imageAbsolutePathWithPrimal'])){
 
-
-            $params=array('img'=>$getarray['imageAbsolutePathWithResize']);
+            $params=array('img'=>$getarray['imageAbsolutePathWithPrimal']);
             $params['attribute'] = 'gender,age,race,smiling,glass,pose';
             $response = $facepp->execute('/detection/detect',$params);
 
@@ -24,13 +21,69 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                 $data = json_decode($response['body'],1);
                 #get face landmark
                 if(empty($data['face'])){
-                    //delete the img from the disk
-                    $image -> delete($getarray['imageAbsolutePathWithResize']);
-                    $image -> delete($getarray['imageAbsolutePathWithPrimal']);
-                    $image -> delete($getarray['imageAbsolutePathWithIcon']);
 
-                    //echo josn result because delete file is unsuccessed
-                     echo json_encode(array('success'=>0,'error'=>$image->getErrorMessage()));
+
+
+                    /**
+                     * gets image info
+                     */
+                    //prepare to insert the image
+                    $imageID =$getarray['id'];
+                    $imagePathWithIconUrl = $getarray['imagePathWithIconUrl'];
+                    $imagePathWithPrimalUrl = $getarray['imagePathWithPrimalUrl'];
+                    $imagePathWithResizeUrl = $getarray['imagePathWithResizeUrl'];
+
+                    $imagedate = $getarray['createdDate'];
+
+                    /**
+                     * end
+                     */
+
+
+                    /**
+                     * gets event id
+                     */
+                    $eventID = $general-> getgenerateMd5ID('event'.$getarray['imageAbsolutePathWithPrimal']);
+                    /**
+                     * end
+                     */
+
+
+
+                    /**
+                     * prepare event if gelocation is not empty
+                     */
+                    if($getarray['GPSLatitudeRef']=='false'){
+
+                        //prepare to insert the data that witout geolocation
+                        $result  = $dbop -> InterNonFace_witoutGeolocation($imageID,$imagePathWithPrimalUrl,$imagePathWithResizeUrl,$imagePathWithIconUrl,$imagedate,$userSession,$eventID);
+
+
+                    }
+                    else{
+                        $image_Longitude = $getarray['GPSLatitudeRef'][1];
+                        $image_Latitude = $getarray['GPSLatitudeRef'][0];
+                        //here to preate to get address name
+                        $geolocationComponent = $general->geolocationToAddress($image_Longitude,$image_Latitude)[0];
+                        $locationID = $general->getgenerateMd5ID('location'.$getarray['imageAbsolutePathWithPrimal']);
+                        $result  = $dbop -> InterNonFaceWhithGeolocation($imageID,$imagePathWithPrimalUrl,$imagePathWithResizeUrl,$imagePathWithIconUrl,$imagedate,$userSession,$eventID,$image_Longitude,$image_Latitude,$locationID,$geolocationComponent);
+
+
+                    }
+
+                    /**
+                     * end
+                     */
+
+
+                    //if the current the photo is not a face then we simply assume that could be a landspace or a view
+                    if($result){
+
+                        echo json_encode(array('success'=>1,'nonface'=>1,'message'=>$getarray));
+                    }
+                    else{
+                        echo json_encode(array('success'=>0,'error'=>'fatal issue'));
+                    }
 
                 }
                 else{
@@ -97,15 +150,18 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                     if($getarray['GPSLatitudeRef']=='false'){
 
                         //prepare to insert the data that witout geolocation
-                        $result  = $dbop -> InterfaceInsert_witoutGeolocation($imageID,$imagePathWithPrimalUrl,$imagePathWithResizeUrl,$imagePathWithIconUrl,$imagedate,$faceID,$facePlusID,$ageValue, $ageRange, $gender, $glass, $race, $smiling, $pose_pitch_angle,$pose_roll_angle,$pose_yaw_angle,$encode_josn_landmark,$eventID);
+                        $result  = $dbop -> InterfaceInsert_witoutGeolocation($imageID,$imagePathWithPrimalUrl,$imagePathWithResizeUrl,$imagePathWithIconUrl,$imagedate,$userSession,$faceID,$facePlusID,$ageValue, $ageRange, $gender, $glass, $race, $smiling, $pose_pitch_angle,$pose_roll_angle,$pose_yaw_angle,$encode_josn_landmark,$eventID);
 
 
                     }
                     else{
                         $image_Longitude = $getarray['GPSLatitudeRef'][1];
                         $image_Latitude = $getarray['GPSLatitudeRef'][0];
-                        //here to preate to get address name
+                        $locationID = $general->getgenerateMd5ID('location'.$getarray['imageAbsolutePathWithPrimal']);
 
+                        //here to preate to get address name
+                        $geolocationComponent = $general->geolocationToAddress($image_Longitude,$image_Latitude)[0];
+                        $result  = $dbop -> InterfaceInsert_Geolocation($imageID,$imagePathWithPrimalUrl,$imagePathWithResizeUrl,$imagePathWithIconUrl,$imagedate,$userSession,$faceID,$facePlusID,$ageValue, $ageRange, $gender, $glass, $race, $smiling, $pose_pitch_angle,$pose_roll_angle,$pose_yaw_angle,$encode_josn_landmark,$eventID,$image_Longitude,$image_Latitude,$locationID,$geolocationComponent);
 
 
                         //prepare to inser the data that contains geolocation
@@ -128,7 +184,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
                         if($getcurrentFace){
 
-                            echo json_encode(array('success'=>1, 'currentFaceInfo'=>$getcurrentFace));
+                            echo json_encode(array('success'=>1, 'nonface'=>0,'message'=>$getcurrentFace));
 
                         }
                         else{
@@ -151,13 +207,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
                 }
             }
-
             else{
-                //delete the img from the disk
-                $image -> delete($getarray['imageAbsolutePathWithResize']);
-                $image -> delete($getarray['imageAbsolutePathWithPrimal']);
-                $image -> delete($getarray['imageAbsolutePathWithIcon']);
+                echo json_encode(array('success'=>0,'error'=>'network error'));
+
             }
+
 
 
         }

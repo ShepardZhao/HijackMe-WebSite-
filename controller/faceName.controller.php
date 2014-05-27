@@ -1,5 +1,5 @@
 <?php
-require_once '../model/class.model.php';
+require_once('../model/class.model.php');
 if($_SERVER['REQUEST_METHOD']==='POST'){
 
     if(isset($_POST['faceID'])&& isset($_POST['facePlusID'])&&isset($_POST['name'])){

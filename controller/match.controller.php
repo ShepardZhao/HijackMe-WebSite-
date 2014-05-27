@@ -1,10 +1,10 @@
 <?php
-require_once '../model/class.model.php';
-
+require_once('../model/class.model.php');
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $facePlusID = $_POST['FacePlusID'];
     //query all photo
-    $getarray = $dbop -> queryAllLFaces();
+    $userSession = $_SESSION['userSession']['userID'];
+    $getarray = $dbop -> queryAllFacesByuserID($userSession);
 
     if($getarray){
         //put $getarray into matching function

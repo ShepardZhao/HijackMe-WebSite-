@@ -10,8 +10,8 @@ class Image {
     //default settings
     private $destination;
     private $fileName;
-    private $maxSize = '10048576'; // bytes (1048576 bytes = 1 meg)
-    private $allowedExtensions = array('jpg','png','gif','JPG','PNG','GIF','jpeg');
+    private $maxSize = '30048576'; // bytes (1048576 bytes = 1 meg)
+    private $allowedExtensions = array('jpg','png','gif','JPG','PNG','GIF','jpeg','JPEG');
     private $type;
     private $nwidth;
     private $nheight;
@@ -148,12 +148,29 @@ class Image {
            return $getexif['DateTime'];
         }
         else{
-           return date("Y-m-d H:i:s", $getexif['FileDateTime']);
+           return date("Y-m-d", $getexif['FileDateTime']);
         }
     }
 
     //imagecopyresized to resize the image
     public function resize($tempfile,$dst_w,$dst_h,$resetName){
+
+       // header('Content-type: image/jpeg');
+
+// Load
+       // $source = imagecreatefromjpeg($tempfile);
+
+// Rotate
+        //$rotate = imagerotate($source, 90, 0);
+
+// Output
+        //imagejpeg($rotate);
+
+// Free the memory
+        //imagedestroy($rotate);
+
+
+
         list($src_w,$src_h)=getimagesize($tempfile);  // get primitve image
 
         $dst_scale = $dst_h/$dst_w; //dst ratio
@@ -190,7 +207,11 @@ class Image {
 
         //save
         imagejpeg($target, $this->getDestination().$resetName.$this -> getfilename());
+
         imagedestroy($target);
+
+        //roate
+
         $this -> error ='';
 
     }
@@ -205,26 +226,44 @@ class Image {
             return false;
         } else {
 
-            $lat_ref = $exif['GPSLatitudeRef'];
-            $lat = $exif['GPSLatitude'];
-            list($num, $dec) = explode('/', $lat[0]);
-            $lat_s = $num / $dec;
-            list($num, $dec) = explode('/', $lat[1]);
-            $lat_m = $num / $dec;
-            list($num, $dec) = explode('/', $lat[2]);
-            $lat_v = $num / $dec;
+            //get the Hemisphere multiplier
+            $LatM = 1; $LongM = 1;
+            if($exif["GPSLatitudeRef"] == 'S')
+            {
+                $LatM = -1;
+            }
+            if($exif["GPSLongitudeRef"] == 'W')
+            {
+                $LongM = -1;
+            }
 
-            $lon_ref = $exif['GPSLongitudeRef'];
-            $lon = $exif['GPSLongitude'];
-            list($num, $dec) = explode('/', $lon[0]);
-            $lon_s = $num / $dec;
-            list($num, $dec) = explode('/', $lon[1]);
-            $lon_m = $num / $dec;
-            list($num, $dec) = explode('/', $lon[2]);
-            $lon_v = $num / $dec;
+            //get the GPS data
+            $gps['LatDegree']=$exif["GPSLatitude"][0];
+            $gps['LatMinute']=$exif["GPSLatitude"][1];
+            $gps['LatgSeconds']=$exif["GPSLatitude"][2];
+            $gps['LongDegree']=$exif["GPSLongitude"][0];
+            $gps['LongMinute']=$exif["GPSLongitude"][1];
+            $gps['LongSeconds']=$exif["GPSLongitude"][2];
 
-            $gps_int = array($lat_s + $lat_m / 60.0 + $lat_v / 3600.0, $lon_s
-            + $lon_m / 60.0 + $lon_v / 3600.0);
+            //convert strings to numbers
+            foreach($gps as $key => $value)
+            {
+                $pos = strpos($value, '/');
+                if($pos !== false)
+                {
+                    $temp = explode('/',$value);
+                    $gps[$key] = $temp[0] / $temp[1];
+                }
+            }
+
+            //calculate the decimal degree
+            $result['latitude'] = $LatM * ($gps['LatDegree'] + ($gps['LatMinute'] / 60) + ($gps['LatgSeconds'] / 3600));
+            $result['longitude'] = $LongM * ($gps['LongDegree'] + ($gps['LongMinute'] / 60) + ($gps['LongSeconds'] / 3600));
+
+
+
+
+            $gps_int = array($result['latitude'], $result['longitude']);
             return $gps_int;
         }
     }

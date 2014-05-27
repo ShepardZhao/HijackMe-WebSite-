@@ -1,6 +1,7 @@
-<div class="row">
-    <a class="close-reveal-modal">&#215;</a>
-<div class="large-12 columns">
+<a class="close-reveal-modal">&#215;</a>
+
+<div class="row" id="camputer_zone">
+<div class="large-12 columns" >
     <div class="row">
         <div class="large-6 columns" id="videocaputer_zone">
             <video id="vid" class="videostream videostream_sope" autoplay loop></video>
@@ -23,17 +24,13 @@
             </div>
         </div>
     </div>
-    <div class="row text-center">
-        <div class="large-12 columns">
-            <a id="Apply-button" class="button alert round disabled">Apply</a>
-        </div>
-    </div>
+
 
 
 </div>
 
-
+    <script src="lib/sdk/js/headtrackr.min.js"></script>
+    <script src="assets/js/camera_capture.js"></script>
 </div>
 
-<script src="lib/sdk/js/headtrackr.min.js"></script>
-<script src="assets/js/camera_capture.js"></script>
+

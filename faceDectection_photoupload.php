@@ -1,6 +1,7 @@
     <!-- photo uploading local server-->
-<div class="row text-center" id="uploadSection">
     <a class="close-reveal-modal close-reveal-modal-upload">&#215;</a>
+
+    <div class="row text-center" id="uploadSection">
     <div class="large-12 small-12 columns">
         <img id="image_zone" class="panel" exif="true" src="http://placehold.it/400x300&text=[photo]">
     </div>
