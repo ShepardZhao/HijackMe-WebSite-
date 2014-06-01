@@ -50,7 +50,8 @@
 
 /** backgound setting up **/
 body{
-    background: url('../img/facial-recognition-background.jpg') no-repeat left top;
+    display:none;
+    background: url('../img/facial-recognition-background.jpg') no-repeat left top fixed;
     background-size:cover;
 
     -webkit-font-smoothing: antialiased;
@@ -259,4 +260,7 @@ body{
 
 }
 
-
+dl dd{
+    background:rgb(250,250,250);
+    margin-top:9px;
+}

@@ -58,7 +58,7 @@ class Match extends Facepp{
     //return similarity
     private function returnIsSimilarity($result){
         $getSimilarity = json_decode($result['body'],1);
-        if($getSimilarity['similarity']>70){ // if comparable result is more then 60%
+        if($getSimilarity['similarity']>65){ // if comparable result is more then 65%
             $this-> silmarity = $getSimilarity;
             return true;
         }

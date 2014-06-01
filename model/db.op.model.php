@@ -1194,12 +1194,14 @@ public function InterNonFace_witoutGeolocation($imageID,$imagePathWithPrimalUrl,
      */
 
     public function insertQrReocrd($getQrid,$getQrCodeUrl,$qrName,$qrItems,$userSession){
-
+        date_default_timezone_set('Australia/Melbourne');
+        $date = date('m/d/Y h:i:s a', time());
         try{
 
-            if($stmt=$this->DataBaseCon->prepare("INSERT QRDataSet (QRID,QRPath,QRName,QRitems,userID) VALUE (?,?,?,?,?)")){
-                $stmt->bind_param('sssss',$getQrid,$getQrCodeUrl,$qrName,$qrItems,$userSession);
+            if($stmt=$this->DataBaseCon->prepare("INSERT QRDataSet (QRID,QRPath,QRName,QRitems,QRDate,userID) VALUE (?,?,?,?,?,?)")){
+                $stmt->bind_param('ssssss',$getQrid,$getQrCodeUrl,$qrName,$qrItems,$date,$userSession);
                 $stmt->execute();
+                $stmt->close();
                 return true;
 
             }
@@ -1226,13 +1228,13 @@ public function InterNonFace_witoutGeolocation($imageID,$imagePathWithPrimalUrl,
     public function queryQRinformation($userID){
         try{
              $oarray=array();
-            if($stmt=$this->DataBaseCon->prepare("SELECT QRName, QRPath FROM QRDataSet WHERE userID=? ")){
+            if($stmt=$this->DataBaseCon->prepare("SELECT QRName, QRPath,QRDate FROM QRDataSet WHERE userID=? ")){
                 $stmt->bind_param('s',$userID);
                 $stmt->execute();
-                $stmt->bind_result($QRName,$QRPath);
+                $stmt->bind_result($QRName,$QRPath,$QRDate);
                 while ($stmt->fetch())
                 {
-                    $array =array('qrName'=>$QRName, 'qrPath'=>$QRPath);
+                    $array =array('qrName'=>$QRName, 'qrPath'=>$QRPath,'Date'=>$QRDate);
                     array_push($oarray,$array);
                 }
                 $stmt -> close();

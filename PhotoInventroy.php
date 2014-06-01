@@ -6,7 +6,7 @@ require_once('model/class.model.php');
 
 <div class="off-canvas-wrap" data-offcanvas>
     <div class="inner-wrap">
-        <nav class="tab-bar">
+        <nav class="tab-bar" data-topbar>
             <section class="left-small">
                 <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
             </section>
@@ -55,7 +55,7 @@ require_once('model/class.model.php');
 
 
             <!----- to Found_On_Map section-->
-            <div class="row" id="toGenerate_QR" style="display:none">
+            <div class="row" id="toGenerate_QR" style="display:none;padding:19px">
 
             </div>
             <!-- end -->

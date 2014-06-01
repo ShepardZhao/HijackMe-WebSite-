@@ -24,8 +24,10 @@ class LoginFaceMatch extends Facepp{
 
 
     private function loopUsersAndMatch($getCurrentFacePlusId,$userArrays){
+        $object =array();
+
         foreach ($userArrays as $singleUser){
-           $object =array();
+            if(!empty($singleUser['userPhoto'])){
            $getID= $this->getResponse($singleUser['userPhoto']);
             if($getID){
                 $getResult = $this -> execute('/recognition/compare',array('face_id2'=>$getID,'face_id1'=>$getCurrentFacePlusId));
@@ -33,6 +35,7 @@ class LoginFaceMatch extends Facepp{
                 if($result){
                     array_push($object,array('singleUser'=>$singleUser,'silimarity'=>$result));
                 }
+            }
             }
         }
         return $object;

@@ -40,7 +40,7 @@ require_once('../model/class.model.php');
 
     if($image -> NonError()){
         //add current to database
-        echo json_encode(array('success'=>1, 'id'=> $general -> getgenerateMd5ID('img'.$getFileName),'name'=>$getFileName,'GPSLatitudeRef'=>$gelocation,'createdDate'=>$getstmap,'imgtype'=>$image ->getType(), 'imgsize'=>$image->getfilesize(), 'imageAbsolutePathWithPrimal'=>'../faceImages/'.$getFileName,'imageAbsolutePathWithResize'=>'../faceImages/'.'_resize'.$getFileName,'imageAbsolutePathWithIcon'=>'../faceImages/'.'_icon'.$getFileName,'imagePathWithResizeUrl'=>Actual_Link.'/faceImages/_resize'.$getFileName, 'imagePathWithIconUrl'=> Actual_Link.'/faceImages/_icon'.$getFileName,'imagePathWithPrimalUrl'=> Actual_Link.'/faceImages/'.$getFileName));
+        echo json_encode(array('success'=>1, 'id'=> $general -> getgenerateMd5ID('img'.$getFileName),'name'=>$getFileName,'GPSLatitudeRef'=>$gelocation,'createdDate'=>$getstmap,'imgtype'=>$image ->getType(), 'imgsize'=>$image->getfilesize(), 'imageAbsolutePathWithPrimal'=>'../faceImages/'.$getFileName,'imageAbsolutePathWithResize'=>'../faceImages/'.'_resize'.$getFileName,'imageAbsolutePathWithIcon'=>'../faceImages/'.'_icon'.$getFileName,'imagePathWithResizeUrl'=>'/faceImages/_resize'.$getFileName, 'imagePathWithIconUrl'=> '/faceImages/_icon'.$getFileName,'imagePathWithPrimalUrl'=> '/faceImages/'.$getFileName));
 
     }
     else{

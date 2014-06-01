@@ -1,9 +1,12 @@
 /**
  * This js file will controll the functionality of hijackme
  */
-$('body').hide();
+//get global url
+var gurl = window.location.origin;
 
 $(window).load(function(){
+
+
     window.getImageID= new Array();
     $(".fancybox").fancybox();
 
@@ -239,7 +242,7 @@ $(window).load(function(){
                         if(data.success==1){
                             //success
                             $('#image_zone').fadeOut(1000,function(){$(this).attr('src',data.imagePathWithResizeUrl).fadeIn(1000);
-                                $('.imagepath').empty().text('File bytes: '+data.imgtype+',  FileType: '+ data.imgsize+' , path: ' +data.imagePathWithPrimalUrl);
+                                $('.imagepath').empty().text('File bytes: '+data.imgtype+',  FileType: '+ data.imgsize+' , path: ' +gurl+data.imagePathWithPrimalUrl);
                                 $('#buttonsubmit').text('Analyse').removeClass('disabled');
                                 window.imgjson = data;
                             });
@@ -492,7 +495,7 @@ $(window).load(function(){
         var getCurrentYaw_angle = getCurrentValue.Yaw_angle;
         var getCurrentLandmark = getCurrentValue.Landmark;
         var getCurrentImgID = getCurrentValue.imgID;
-        var getCurrentImagePath =getCurrentValue.imgPathWithResizeUrl;
+        var getCurrentImagePath =gurl+getCurrentValue.imgPathWithResizeUrl;
         var getCurrentImgDate =getCurrentValue.imgDate;
         var getCurrentLongitude =getCurrentValue.Longitude;
         var getCurrentLatitude =getCurrentValue.Latitude;
@@ -616,7 +619,7 @@ $(window).load(function(){
         $('#MatchedZone').append('<div class="row"><div class="large-12 columns"><ul id="matchedPhotoThumbs" style="padding:19px" class="small-block-grid-2 medium-block-grid-3 large-block-grid-4" ></ul></div></div>');
         $.each(result,function(key,value){
 
-            $('#matchedPhotoThumbs').append('<li class="animated gridphotolist rollIn" style="position:relative"><div class="matchedImageWrap" ><a class="fancybox" rel="group"  title="Name: '+value.name+', Age: '+value.Age+'{around '+value.Age_range+'}, Gender: '+value.Gender+', Glass: '+value.Glass+', Race: '+value.Race+', Smiling: ('+value.Smiling+'), Silmarilty: '+value.silmarilty.similarity+'" href="'+value.imgPathWithPrimalUrl+'"><img class="matchedImage th" id="'+value.faceID+'" src="'+value.imgPathWithResizeUrl+'"></a></div><h4 class="tickerZone" id="'+value.imgID+'"><small>'+value.name+'</small></h4></li>');
+            $('#matchedPhotoThumbs').append('<li class="animated gridphotolist rollIn" style="position:relative"><div class="matchedImageWrap" ><a class="fancybox" rel="group"  title="Name: '+value.name+', Age: '+value.Age+'{around '+value.Age_range+'}, Gender: '+value.Gender+', Glass: '+value.Glass+', Race: '+value.Race+', Smiling: ('+value.Smiling+'), Silmarilty: '+value.silmarilty.similarity+'" href="'+gurl+value.imgPathWithPrimalUrl+'"><img class="matchedImage th" id="'+value.faceID+'" src="'+gurl+value.imgPathWithResizeUrl+'"></a></div><h4 class="tickerZone" id="'+value.imgID+'"><small>'+value.name+'</small></h4></li>');
         });
 
     }
@@ -759,7 +762,7 @@ $(window).load(function(){
 
     $('body').on('click','#clcik_Found_On_Map',function(){
         clickHiden();
-        $('#toFound_On_Map').fadeIn().append('<div class="row"><div class="large-12 columns text-center"><i style="color:#008CBA" class="fa fa-5x fa-cog fa-spin"></i></div></div>');
+        //$('#toFound_On_Map').fadeIn().append('<div class="row"><div class="large-12 columns text-center"><i style="color:#008CBA" class="fa fa-5x fa-cog fa-spin"></i></div></div>');
 
         var request = $.ajax({
             url: 'controller/queryGeoloactionImage.controller.php',
@@ -767,12 +770,15 @@ $(window).load(function(){
             dataType: 'json'
         });
         request.done(function( data ) {
-        console.log(data);
             if(data.success==1){
                 $('#toFound_On_Map').fadeIn();
                 DisplayMap(data.message);
                 google.maps.event.trigger(map, "resize");
 
+            }
+            else if(data.success==0){
+                $('#map').hide();
+                $('#toFound_On_Map').empty().fadeIn().append('<div class="row"><div class="large-12 columns text-center"><h2 class="text-center" style="height:200px"><small>No photo has can be displyed on map</small></h2></div></div>');
             }
 
 
@@ -826,8 +832,8 @@ $(window).load(function(){
 
             //get each photo's info
             var photoId = photos[i].imgID;
-            var photoPath_L =  photos[i].imgPathWithPrimalUrl;
-            var photoPath_S =  photos[i].imgPathWithIconUrl;
+            var photoPath_L =  gurl+photos[i].imgPathWithPrimalUrl;
+            var photoPath_S =  gurl+photos[i].imgPathWithIconUrl;
             var photoLat = photos[i].Latitude;
             var photoLon = photos[i].Longitude;
             var photoDate =  photos[i].imgDate;
@@ -924,7 +930,7 @@ $(window).load(function(){
                         $('#filterImageZone').append('<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 photoDisplay" style="padding: 2px;"></ul>');
 
                         $.each(data.message,function(key,value){
-                                $('.photoDisplay').append('<li class="animated flipInX "><div><a class="fancybox" rel="group" href="'+value.imgPathWithPrimalUrl+'"><img class="th" src="'+value.imgPathWithResizeUrl+'"></a><div class="panel text-center"><div class="row"><div class="large-6 columns"><i class="fa fa-qrcode qrclass fa-lg" id="'+value.imgID+'"></i></div><div class="large-6 columns"><i class="fa fa-pencil-square-o fa-lg"></i></div></div></div></div></li>');
+                                $('.photoDisplay').append('<li class="animated flipInX "><div><a class="fancybox" rel="group" href="'+gurl+value.imgPathWithPrimalUrl+'"><img class="th" src="'+gurl+value.imgPathWithResizeUrl+'"></a><div class="panel text-center"><div class="row"><div class="large-6 columns"><i class="fa fa-qrcode qrclass fa-lg" id="'+value.imgID+'"></i></div><div class="large-6 columns"><i class="fa fa-pencil-square-o fa-lg"></i></div></div></div></div></li>');
 
                         });
                         $(this).fadeIn();
@@ -1018,7 +1024,7 @@ $(window).load(function(){
                    $(this).empty();
                    $(this).append('<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 photoDisplay" style="padding: 2px;"></ul>');
                    $.each(data.message,function(key,value){
-                           $('.photoDisplay').append('<li class="animated flipInX "><div><a class="fancybox" rel="group" href="'+value.imgPathWithPrimalUrl+'"><img class="th" src="'+value.imgPathWithResizeUrl+'"></a><div class="panel text-center"><div class="row"><div class="large-6 columns"><i class="fa fa-qrcode qrclass fa-lg" id="'+value.imgID+'"></i></div><div class="large-6 columns"><i class="fa fa-pencil-square-o fa-lg"></i></div></div></div></div></li>');
+                           $('.photoDisplay').append('<li class="animated flipInX "><div><a class="fancybox" rel="group" href="'+gurl+value.imgPathWithPrimalUrl+'"><img class="th" src="'+gurl+value.imgPathWithResizeUrl+'"></a><div class="panel text-center"><div class="row"><div class="large-6 columns"><i class="fa fa-qrcode qrclass fa-lg" id="'+value.imgID+'"></i></div><div class="large-6 columns"><i class="fa fa-pencil-square-o fa-lg"></i></div></div></div></div></li>');
                    });
                    $(this).fadeIn();
 
@@ -1444,7 +1450,7 @@ $(window).load(function(){
                 $(this).append('<div class="row"><div class="large-12 columns"><ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 qrPhoto" style="padding: 2px;"></ul></div>');
                 $.each(data.message,function(key,value){
 
-                    $('.qrPhoto').append('<li class="animated flipInX "><div><a class="fancybox" rel="group" href="'+value.imgPathWithPrimalUrl+'"><img class="th" src="'+value.imgPathWithResizeUrl+'"></a></div></li>');
+                    $('.qrPhoto').append('<li class="animated flipInX "><div><a class="fancybox" rel="group" href="'+gurl+value.imgPathWithPrimalUrl+'"><img class="th" src="'+gurl+value.imgPathWithResizeUrl+'"></a></div></li>');
 
                 });
                 $(this).fadeIn();

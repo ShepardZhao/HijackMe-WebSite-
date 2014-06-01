@@ -8,9 +8,8 @@ define('UserName','root');//usename for datebase
 define('Password','4414463');//password for database
 define('Database','hijackme');//selected database for database
 //Url options
-define('Actual_Link','http://192.168.1.10');
 define('DOCUMENT_ROOT',$_SERVER['DOCUMENT_ROOT']);
-define('QRPATCH','http://192.168.1.10/remoteQrview.php');
+define('QRPATCH','http://10.19.40.93/remoteQrview.php'); //qr code url
 //hijackmetk.ipagemysql.com
 ?>
 

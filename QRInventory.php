@@ -8,11 +8,10 @@
                 echo '<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">';
             $queryAllQRByCurrentUser = $dbop ->queryQRinformation($userSession);
             foreach ($queryAllQRByCurrentUser as $key=>$value_top){
-                 echo '<li><a class="fancybox" rel="group1" href='.$value_top['qrPath'].'></a><img src='.$value_top['qrPath'].'><h3 class="text-center"><small>'.$value_top['qrName'].'</small></h3></li>';
+                 echo '<li><img src='.$value_top['qrPath'].'><h3 class="text-center"><small>'.$value_top['qrName'].'<h4><small>('.$value_top['Date'].')</small></h4></small></h3></li>';
 
                 }
                 echo '</ul>';
-
 
             ?>
 

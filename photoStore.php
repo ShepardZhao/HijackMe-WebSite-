@@ -4,10 +4,9 @@ require_once('model/class.model.php');
 ?>
 
 
-<div class="row" style="margin:9px;">
+<div class="row">
     <div class="large-12 columns">
     <dl class="sub-nav">
-        <dt>Filter:</dt>
         <dd class="nav-click active"><a id="showsALL_noFilter" > All</a></dd>
         <dd class="nav-click"><a  id="click-filterAllface">Face</a></dd>
         <dd class="nav-click"><a  id="click-filterAllView">Landscape</a></dd>

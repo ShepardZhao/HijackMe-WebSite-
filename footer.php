@@ -3,6 +3,7 @@
 <div id="video_modal" class="reveal-modal medium" data-reveal></div>
 
 <div id="Common_modal" class="reveal-modal" data-reveal></div>
+
 <div id="form" class="reveal-modal small" data-reveal></div>
 </body>
 
